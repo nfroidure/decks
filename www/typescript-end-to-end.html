@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Typing end to end with TypeScript</title>
+    <meta name="description" content="Slides explaining my TypeScript end to end typing approach.">
+    <link rel="icon" type="image/png" href="https://insertafter.com/images/favicon.png">
+    <meta name="robots" content="index,follow">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script type="application/javascript" src="javascript/script.js"></script>
+    <section>
+        <h1>Typing end to end with TypeScript</h1>
+        <p>Tricks and tooling for web applications typing with TypeScript.</p>
+    </section>
+    <section>
+        <h2>About me</h2>
+        <ul>
+            <li>OSS dev</li>
+            <li>CTO @DiagRAMS</li>
+            <li><a href="https://insertafter.com" title="Read my blog">blogging</a></li>
+            <li><a href="https://nicolasfroidure.fr" title="Read more about my engagement">ecologist/activist</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Why using TypeScript?</h2>
+        <ul>
+            <li>less bugs</li>
+            <li>autocompletion</li>
+            <li>security</li>
+            <li>type checks</li>
+            <li>better abstractions</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Still some issues</h2>
+        <p>What about managing IOs ?</p>
+        <ul>
+            <li>API interface</li>
+            <li>database IOs</li>
+            <li>user inputs</li>
+            <li>routing parameters</li>
+            <li>configuration/environment</li>
+        </ul>
+    </section>
+    <section>
+        <h2>API interface</h2>
+        <p><a href="https://www.openapis.org/" title="Visit the Open API Initiavive website">OpenAPI</a>, <a
+                href="https://json-schema.org/" title="Visit the JSONSchema website">JSONSchema</a> and <a
+                href="https://graphql.org/" title="Visit the GraphQL website">GraphQL</a> to the rescue!</p>
+    </section>
+    <section>
+        <h3>OpenAPI</h3>
+        <p>Syncing API documentation with the code:</p>
+        <ul>
+            <li>
+                using <a href="https://github.com/nfroidure/whook" title="Visit the Whook repository">Whook</a>,
+            </li>
+            <li>
+                using <a href="https://github.com/Find-A-Musician/findAMusicianBackend"
+                    title="Visit a sample repo">Express</a>.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>GraphQL</h3>
+        <p>Tie TypeScript types with GraphQL schemas:</p>
+        <ul>
+            <li>using <a href="https://www.the-guild.dev/graphql/codegen">graphql-codegen</a>,</li>
+            <li>using <a href="https://www.freecodecamp.org/news/how-to-use-typescript-with-graphql/">TypeGraphQL</a>.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>Others</h3>
+        <p>Did you heard about <a href="https://trpc.io/" title="Go to the tRPC project">tRPC</a>?</p>
+    </section>
+    <section>
+        <h3>JSONSchema</h3>
+        <p>Only JSON inputs?</p>
+        <ul>
+            <li>
+                generate types from JSONSchema using <a href="https://github.com/nfroidure/schema2dts"
+                    title="See the project repository">schema2dts</a><br />and validate with <a
+                    href="https://ajv.js.org/" title="See AJV's website">AJV</a>,
+            </li>
+            <li>
+                create schemas and types altogether with <a href="https://github.com/sinclairzx81/typebox"
+                    title="Visit the repository">TypeBox</a>.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2>What about clients?</h2>
+        <p>Applications and back-ends may use your API too:</p>
+        <ul>
+            <li>type casting using generics,</li>
+            <li><a href="https://github.com/nfroidure/openapi-ts-sdk-builder"
+                    title="Generate a TypeScript SDK from OpenAPI"></a>generate sdk from OpenAPI,</li>
+            <li>type GraphQL queries using <a href="https://www.the-guild.dev/graphql/codegen">graphql-codegen</a>,
+                again.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Database</h2>
+        <ul>
+            <li>using generics,</li>
+            <li>using ODM/ORMs: <a href="https://github.com/adelsz/pgtyped" title="Check the pgtyped repo">pgtyped</a>,
+                <a href="https://typeorm.io/" title="Check the typeorm web site">typeorm</a>,
+            </li>
+            <li>parsing <a href="https://github.com/nfroidure/pgsqwell"
+                    title="See an elementary brick currently active">SQL queries</a> (wip)</li>
+        </ul>
+    </section>
+    <section>
+        <h2>User inputs</h2>
+        <p>Typing React forms entries with <a href="https://react-hook-form.com/"
+                title="See react-hook-form repo">useForm</a>.</p>
+    </section>
+    <section>
+        <h2>Routing parameters</h2>
+        <p>Let's manage <a href="https://nextjs.org/" title="Visit the NextJS website">NextJS</a> query/path parameters!
+        </p>
+    </section>
+    <section>
+        <h2>Configuration/Environment</h2>
+        <p>Use global types</p>
+    </section>
+    <section>
+        <h2>Thanks!</h2>
+        <p>Any question?</p>
+    </section>
+</body>
+
+</html>

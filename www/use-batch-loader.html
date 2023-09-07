@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Typing end to end with TypeScript</title>
+    <meta name="description" content="Slides explaining my TypeScript end to end typing approach.">
+    <link rel="icon" type="image/png" href="https://insertafter.com/images/favicon.png">
+    <meta name="robots" content="index,follow">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script type="application/javascript" src="javascript/script.js"></script>
+    <section>
+        <h1>Use Batch loader</h1>
+        <p>Or loading resources on the fly.</p>
+    </section>
+    <section>
+        <h2>About me</h2>
+        <ul>
+            <li>OSS dev</li>
+            <li>CTO @DiagRAMS</li>
+            <li><a href="https://insertafter.com" title="Read my blog">blogging</a></li>
+            <li><a href="https://nicolasfroidure.fr" title="Read more about my engagement">ecologist/activist</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>A Bit of Context</h2>
+        <ul>
+            <li>having a REST API</li>
+            <li>facing the N+1 problem</li>
+            <li>a particular <a href="https://github.com/nfroidure/whook">API framework</a></li>
+            <li>a particular <a href="https://insertafter.com/en/blog/json_structure_for_rest_apis.html">JSON
+                    structure</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>The GraphQL PoC</h2>
+        <p>Allowed us to notice that:</p>
+        <ul>
+            <li>resolvers were just using API endpoints handlers to load batchs of resources,</li>
+            <li>going further would require a new rights management layer.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>The GraphQL advantages evolved with</h3>
+        <ul>
+            <li>HTTP2/3 (multiplexing, headers compression...),</li>
+            <li>JWT tokens,</li>
+            <li>wide Open API support (frameworks, SDKs...).</li>
+        </ul>
+    </section>
+    <section>
+        <h3>The GraphQL downsides due to our stack</h3>
+        <ul>
+            <li>breaks our neat split using AWS Lambda,</li>
+            <li>adds extra work to declare new schemas when OpenAPI ones exists.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Statement</h2>
+        <p>What if we could use React hooks and contexts to tackle the N+1 problem?</p>
+    </section>
+    <section>
+        <h2>Implementation</h2>
+        <p>Let's dive into the code!</p>
+    </section>
+    <section>
+        <h3>Components</h3>
+        <ul>
+            <li>a context (providing <code>getById</code>),</li>
+            <li>a hook (providing <abbr title="Least Recently Used">LRU</abbr> cache and a batch load manager),</li>
+            <li>a provider (providing batch loader for actual resources).</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Optimistic</h3>
+        <p>Let's load the whole data directly!</p>
+    </section>
+    <section>
+        <h3>Realistic</h3>
+        <p>Load the lacking resources per batch.</p>
+    </section>
+    <section>
+        <h3>How it works</h3>
+        <ul>
+            <li>Just ask resources per ids,</li>
+            <li>React rendering cumulate lacking ids,</li>
+            <li>the hook eventually loads lacking resources per batches,</li>
+            <li>next rendering finally display the loaded resources.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Interesting usages</h3>
+        <ul>
+            <li>universal search,</li>
+            <li>resource picker (show all or fallback to autocomplete),</li>
+            <li>factory/organisation switchs,</li>
+            <li>hacky root batch loader (filtered).</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Share Your Thoughts!</h3>
+        <p>
+            Tell us what you think before we release the open source package.
+        </p>
+    </section>
+    <section>
+        <h2>Thanks!</h2>
+        <p>Any question?</p>
+    </section>
+</body>
+
+</html>
